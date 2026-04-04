@@ -1,34 +1,105 @@
-# Google-sheet-email-automation
+# Automated Monthly Reporting Monitoring System
 
-#Overview:
-This project automates the monitoring of monthly reporting data in Google Sheets and sends email reminders if reports are incomplete.
+## Overview
 
-#Features:
-Automatically checks previous month's data
-Detects missing/incomplete entries
-Sends automated email reminders
-Designed for NGO reporting workflows
+This project automates the monitoring of monthly reporting data across multiple Google Sheets and sends reminder emails if reports are incomplete.
 
-#Tech Stack:
-Google Apps Script (JavaScript)
-Google Sheets
-Gmail Automation
+It uses a centralized control sheet to manage multiple projects dynamically.
 
-#How it Works:
-Runs on the 1st of every month (via trigger)
-Checks specific sheet ranges mapped to each month
-If any cell is empty → sends reminder email
+---
 
-#Use Case:
-Used in program monitoring to ensure timely reporting by field teams.
+## Key Features
 
-#Sample Output:
-Subject: Monthly Report Incomplete: Action Needed
+* Multi-project monitoring from a central control sheet
+* Dynamic month mapping based on project start month
+* Automated detection of incomplete data
+* Email reminders sent to respective PULs
+* Status tracking (email sent / not sent)
+* Monthly execution using time-based triggers
 
-#Impact:
-Reduced manual follow-ups
-Improved reporting compliance
-Saved operational time
+---
 
-#Author:
+## How It Works
+
+1. The script runs on the 1st of every month
+2. It checks the **previous month’s data**
+3. Reads project details from the control sheet
+4. Adjusts range dynamically based on:
+
+   * Project start month
+   * Standard reporting structure
+5. Verifies if all cells are filled
+6. If incomplete:
+
+   * Sends email reminder
+   * Updates status in control sheet
+
+---
+
+## Data Structure
+
+### Control Sheet Columns:
+
+* Project Name
+* Sheet Link
+* Sheet Name
+* PUL Email
+* Start Month
+* Status (Active/Inactive)
+* Last Checked
+* Email Sent
+
+---
+
+## Month-to-Range Mapping
+
+| Month     | Range    |
+| --------- | -------- |
+| April     | J5:K32   |
+| May       | Q5:R32   |
+| June      | X5:Y32   |
+| July      | AH5:AI32 |
+| August    | AO5:AP32 |
+| September | AV5:AW32 |
+| October   | BF5:BG32 |
+| November  | BM5:BN32 |
+| December  | BT5:BU32 |
+| January   | CD5:CE32 |
+| February  | CK5:CL32 |
+| March     | CR5:CS32 |
+
+---
+
+## Tech Stack
+
+* Google Apps Script (JavaScript)
+* Google Sheets
+* Gmail Automation
+
+---
+
+## Impact
+
+* Eliminated manual follow-ups
+* Improved reporting compliance
+* Centralized monitoring system
+* Scalable across multiple projects
+
+---
+
+## Automation
+
+* Trigger: Monthly (1st of every month)
+* Function: `checkAllProjects()`
+
+---
+
+## Author
+
 Neetu Kharb
+
+---
+
+## Notes
+
+This system was implemented in a real NGO environment to improve reporting efficiency and accountability.

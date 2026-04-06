@@ -1,5 +1,5 @@
 function checkAllProjects() {
-  const controlSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Control");
+  const controlSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
   const data = controlSheet.getDataRange().getValues();
 
   const today = new Date();
